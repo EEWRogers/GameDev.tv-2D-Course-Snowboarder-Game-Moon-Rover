@@ -1,18 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] float rotationStrength = 75f;
+    Rigidbody2D rigidbody2d;
+    PlayerInput playerInput;
+    InputAction rotateAction;
+
+    void Awake() 
     {
-        
+        rigidbody2d = GetComponent<Rigidbody2D>();
+        playerInput = GetComponent<PlayerInput>();
+        rotateAction = playerInput.actions["Rotate"];
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate() 
     {
-        
+        RotatePlayer();
+    }
+
+    void RotatePlayer()
+    {
+        rigidbody2d.AddTorque(rotateAction.ReadValue<float>() * rotationStrength);
     }
 }

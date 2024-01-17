@@ -1318,6 +1318,24 @@ MonoBehaviour:
   m_MaximumFOV: 60
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
+--- !u!1 &2093687811 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4417230469496612208, guid: 76708dcb0d2fd3b4baf0b7e4488a9fa1, type: 3}
+  m_PrefabInstance: {fileID: 1706225649441955072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2093687814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093687811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e253db5b4d2c94187037526ac8f7a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationStrength: 75
 --- !u!1001 &1706225649441955072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1329,6 +1347,14 @@ PrefabInstance:
     - target: {fileID: 4417230469496612208, guid: 76708dcb0d2fd3b4baf0b7e4488a9fa1, type: 3}
       propertyPath: m_Name
       value: Rover
+      objectReference: {fileID: 0}
+    - target: {fileID: 8866347552704610066, guid: 76708dcb0d2fd3b4baf0b7e4488a9fa1, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8866347552704610066, guid: 76708dcb0d2fd3b4baf0b7e4488a9fa1, type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8866347552704610066, guid: 76708dcb0d2fd3b4baf0b7e4488a9fa1, type: 3}
       propertyPath: m_CollisionDetection
@@ -1377,7 +1403,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4417230469496612208, guid: 76708dcb0d2fd3b4baf0b7e4488a9fa1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2093687814}
   m_SourcePrefab: {fileID: 100100000, guid: 76708dcb0d2fd3b4baf0b7e4488a9fa1, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
