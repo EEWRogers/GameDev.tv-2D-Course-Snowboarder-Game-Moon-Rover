@@ -15,7 +15,7 @@ public class Parallax : MonoBehaviour
         length = GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         ParallaxEffect();
     }
