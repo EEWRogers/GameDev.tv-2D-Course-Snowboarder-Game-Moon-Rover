@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
+    [SerializeField] ParticleSystem finishEffect;
     [SerializeField] float reloadDelay = 0.5f;
     int currentActiveScene;
 
@@ -22,7 +23,7 @@ void OnTriggerEnter2D(Collider2D other)
 
 IEnumerator RestartLevel()
 {
-    Debug.Log("You finished the level!");
+    finishEffect.Play();
 
     yield return new WaitForSeconds(reloadDelay);
 
