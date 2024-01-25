@@ -15,8 +15,9 @@ public class FinishLine : MonoBehaviour
 
 void OnTriggerEnter2D(Collider2D other) 
 {
+    if (other.GetComponentInParent<PlayerController>() == null) { return; }
+
     StartCoroutine(RestartLevel());
-    
 }
 
 IEnumerator RestartLevel()
