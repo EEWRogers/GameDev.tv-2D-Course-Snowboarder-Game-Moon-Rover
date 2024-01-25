@@ -7,13 +7,14 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float rotationStrength = 75f;
+    [SerializeField] float defaultSpeed = 20;
     [SerializeField] float boostSpeed = 22f;
     SurfaceEffector2D surfaceEffector2D;
     Rigidbody2D rigidbody2d;
     PlayerInput playerInput;
     InputAction rotateAction;
     InputAction boostAction;
-    float defaultSpeed;
+
 
     void Awake() 
     {
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
     void Start() 
     {
         if (surfaceEffector2D == null) { return; }
-        defaultSpeed = surfaceEffector2D.speed;
+        surfaceEffector2D.speed = defaultSpeed;
     }
 
     void Update() 

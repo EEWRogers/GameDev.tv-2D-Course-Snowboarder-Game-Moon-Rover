@@ -2440,6 +2440,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3224411981209815812, guid: 844fcaa4c7e7ac545ad334f2c4e25681, type: 3}
+      propertyPath: defaultSpeed
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224411981209815812, guid: 844fcaa4c7e7ac545ad334f2c4e25681, type: 3}
       propertyPath: rotationStrength
       value: 80
       objectReference: {fileID: 0}
