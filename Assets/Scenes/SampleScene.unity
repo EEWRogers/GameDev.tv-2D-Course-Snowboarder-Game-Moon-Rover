@@ -2397,7 +2397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1369897214181017262, guid: 844fcaa4c7e7ac545ad334f2c4e25681, type: 3}
       propertyPath: reloadDelay
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2057573950278156135, guid: 844fcaa4c7e7ac545ad334f2c4e25681, type: 3}
       propertyPath: m_LocalScale.x

@@ -9,22 +9,28 @@ public class FinishLine : MonoBehaviour
     [SerializeField] float reloadDelay = 0.5f;
     int currentActiveScene;
     AudioSource finishSFX;
+    bool isFinishing = false;
 
     void OnEnable() 
     {
         currentActiveScene = SceneManager.GetActiveScene().buildIndex;
         finishSFX = GetComponent<AudioSource>();
+        isFinishing = false;
     }
 
 void OnTriggerEnter2D(Collider2D other) 
 {
     if (other.GetComponentInParent<PlayerController>() == null) { return; }
 
-    StartCoroutine(RestartLevel());
+    if (!isFinishing)
+    {
+        StartCoroutine(RestartLevel());
+    }
 }
 
 IEnumerator RestartLevel()
 {
+    isFinishing = true;
     finishEffect.Play();
     finishSFX.Play();
 

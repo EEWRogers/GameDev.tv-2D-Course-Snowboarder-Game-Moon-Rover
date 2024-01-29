@@ -10,21 +10,27 @@ public class CrashDetector : MonoBehaviour
     int currentActiveScene;
     AudioSource crashSFX;
     PlayerController playerController;
+    bool isCrashing = false;
 
 void OnEnable() 
 {
     currentActiveScene = SceneManager.GetActiveScene().buildIndex;
     crashSFX = GetComponent<AudioSource>();
     playerController = GetComponentInParent<PlayerController>();
+    isCrashing = false;
 }
 
 void OnCollisionEnter2D(Collision2D other) 
 {
-    StartCoroutine(RestartLevel());
+    if (!isCrashing)
+    {
+        StartCoroutine(RestartLevel());
+    }
 }
 
     IEnumerator RestartLevel()
 {
+    isCrashing = true;
     playerController.DisableControls();
     crashEffect.Play();
     crashSFX.Play();
