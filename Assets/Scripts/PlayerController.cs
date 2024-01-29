@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     PlayerInput playerInput;
     InputAction rotateAction;
     InputAction boostAction;
-
+    bool canMove = true;
 
     void Awake() 
     {
@@ -25,6 +25,11 @@ public class PlayerController : MonoBehaviour
         boostAction = playerInput.actions["Boost"];
     }
 
+    void OnEnable() 
+    {
+        canMove = true;
+    }
+
     void Start() 
     {
         if (surfaceEffector2D == null) { return; }
@@ -33,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     void Update() 
     {
-        if (boostAction.IsPressed())
+        if (boostAction.IsPressed() && canMove)
         {
             Boost();
         }
@@ -45,7 +50,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate() 
     {
-        RotatePlayer();
+        if (canMove)
+        {
+            RotatePlayer();
+        }
     }
 
     void RotatePlayer()
@@ -56,5 +64,10 @@ public class PlayerController : MonoBehaviour
     void Boost()
     {
         surfaceEffector2D.speed = boostSpeed;
+    }
+
+    public void DisableControls()
+    {
+        canMove = false;
     }
 }

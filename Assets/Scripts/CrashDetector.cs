@@ -9,11 +9,13 @@ public class CrashDetector : MonoBehaviour
     [SerializeField] float reloadDelay = 1f;
     int currentActiveScene;
     AudioSource crashSFX;
+    PlayerController playerController;
 
 void OnEnable() 
 {
     currentActiveScene = SceneManager.GetActiveScene().buildIndex;
     crashSFX = GetComponent<AudioSource>();
+    playerController = GetComponentInParent<PlayerController>();
 }
 
 void OnCollisionEnter2D(Collision2D other) 
@@ -23,6 +25,7 @@ void OnCollisionEnter2D(Collision2D other)
 
     IEnumerator RestartLevel()
 {
+    playerController.DisableControls();
     crashEffect.Play();
     crashSFX.Play();
 
