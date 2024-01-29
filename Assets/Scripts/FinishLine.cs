@@ -8,10 +8,12 @@ public class FinishLine : MonoBehaviour
     [SerializeField] ParticleSystem finishEffect;
     [SerializeField] float reloadDelay = 0.5f;
     int currentActiveScene;
+    AudioSource finishSFX;
 
     void OnEnable() 
     {
         currentActiveScene = SceneManager.GetActiveScene().buildIndex;
+        finishSFX = GetComponent<AudioSource>();
     }
 
 void OnTriggerEnter2D(Collider2D other) 
@@ -24,6 +26,7 @@ void OnTriggerEnter2D(Collider2D other)
 IEnumerator RestartLevel()
 {
     finishEffect.Play();
+    finishSFX.Play();
 
     yield return new WaitForSeconds(reloadDelay);
 
